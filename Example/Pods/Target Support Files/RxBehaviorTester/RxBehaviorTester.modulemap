@@ -1,0 +1,6 @@
+framework module RxBehaviorTester {
+  umbrella header "RxBehaviorTester-umbrella.h"
+
+  export *
+  module * { export * }
+}

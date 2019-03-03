@@ -1,0 +1,6 @@
+framework module Pods_RxBehaviorTester_Tests {
+  umbrella header "Pods-RxBehaviorTester_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

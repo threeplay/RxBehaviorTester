@@ -1,0 +1,22 @@
+{
+  "name": "RxBehaviorTester",
+  "version": "0.1.0",
+  "summary": "A short description of RxBehaviorTester.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Eliran Ben-Ezra/RxBehaviorTester",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Eliran Ben-Ezra": "eliran@gc.io"
+  },
+  "source": {
+    "git": "https://github.com/Eliran Ben-Ezra/RxBehaviorTester.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RxBehaviorTester/Classes/**/*"
+}

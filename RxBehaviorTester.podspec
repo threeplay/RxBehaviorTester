@@ -1,15 +1,7 @@
-#
-# Be sure to run `pod lib lint RxBehaviorTester.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'RxBehaviorTester'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of RxBehaviorTester.'
+  s.summary          = 'Rx chains behavior testing'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +10,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  RxBehavior Tester helps with testing Rx chains that have complex behavior by
+  creating matchers that describe the expected behavior of chain
                        DESC
 
-  s.homepage         = 'https://github.com/Eliran Ben-Ezra/RxBehaviorTester'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/threeplay/RxBehaviorTester'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Eliran Ben-Ezra' => 'eliran@gc.io' }
-  s.source           = { :git => 'https://github.com/Eliran Ben-Ezra/RxBehaviorTester.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Eliran Ben-Ezra' => 'eliran@threeplay.com' }
+  s.source           = { :git => 'https://github.com/threeplay/RxBehaviorTester.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.swift_version = "4.2"
+  s.ios.deployment_target = '10.0'
+  s.osx.dependency_target = '10.10'
+  s.dependency = 'RxSwift', '~> 4.0'
+  s.dependency = 'RxBlocking', '~> 4.0'
 
   s.source_files = 'RxBehaviorTester/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'RxBehaviorTester' => ['RxBehaviorTester/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

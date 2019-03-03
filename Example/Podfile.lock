@@ -1,0 +1,16 @@
+PODS:
+  - RxBehaviorTester (0.1.0)
+
+DEPENDENCIES:
+  - RxBehaviorTester (from `../`)
+
+EXTERNAL SOURCES:
+  RxBehaviorTester:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RxBehaviorTester: fff9d4daefdf4a1b56221e520421c8908ebda987
+
+PODFILE CHECKSUM: 8cabe8051ee5d9d1029b5705aac2b0eff4957f10
+
+COCOAPODS: 1.6.0
