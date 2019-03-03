@@ -32,7 +32,7 @@ class RxBehaviorTesterTests: XCTestCase {
     XCTAssertEqual(decision, .failed)
   }
 
-  func test_that_it_resets_evaluator_before_evaluating_states() {
+  func test_that_it_resets_matcher_before_evaluating_states() {
     source.onCompleted()
     let _ = tester.test(withTimeout: 0.1)
 
@@ -41,7 +41,7 @@ class RxBehaviorTesterTests: XCTestCase {
     XCTAssertEqual(actual, expected)
   }
 
-  func test_that_it_passes_event_to_evaluator() {
+  func test_that_it_passes_event_to_matcher() {
     let states = [makeState(), makeState(intField: 1), makeState(intField: 2)]
     states.forEach(source.onNext)
     source.onCompleted()
@@ -67,7 +67,7 @@ class RxBehaviorTesterTests: XCTestCase {
     XCTAssertEqual(decision, .correct)
   }
 
-  func test_that_final_decision_doesnt_send_any_more_events_to_evaluator() {
+  func test_that_final_decision_doesnt_send_any_more_events_to_matcher() {
     source.onNext(makeState())
     source.onNext(makeState(decision: .correct))
     source.onNext(makeState(decision: .failed))

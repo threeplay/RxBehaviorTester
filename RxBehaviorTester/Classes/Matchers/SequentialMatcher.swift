@@ -8,6 +8,7 @@ import RxSwift
 class SequentialMatcher<Element>: RxBehaviorMatcher {
   private let matchers: [AnyMatcher<Element>]
   private var current: Int = 0
+  private var decision: MatchDecision?
 
   init(_ matchers: [AnyMatcher<Element>]) {
     self.matchers = matchers
@@ -15,10 +16,14 @@ class SequentialMatcher<Element>: RxBehaviorMatcher {
 
   func reset() {
     current = 0
+    decision = nil
     matchers.forEach { $0.reset() }
   }
 
   func on(event: Event<Element>) -> MatchDecision {
+    if let decision = decision {
+      return decision
+    }
     while current < matchers.count {
       switch matchers[current].on(event: event) {
       case .pending: return .pending
