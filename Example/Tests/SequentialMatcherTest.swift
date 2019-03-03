@@ -64,7 +64,7 @@ class SequentialEvaluatorTests: XCTestCase {
 
     expect(decision) == .failed
     expect(self.mocks[0].actions.last!) == .next(.next(0))
-    expect(self.mocks[1].actions.last!) == .next(.next(1))
+    expect(self.mocks[1].actions.last!) == .next(.next(0))
     expect(self.mocks[2].actions) == []
   }
 

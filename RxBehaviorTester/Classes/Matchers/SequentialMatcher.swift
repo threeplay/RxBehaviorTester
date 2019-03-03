@@ -26,9 +26,13 @@ class SequentialMatcher<Element>: RxBehaviorMatcher {
     }
     while current < matchers.count {
       switch matchers[current].on(event: event) {
-      case .pending: return .pending
-      case .failed: return .failed
-      case .correct: current += 1
+      case .pending:
+        return .pending
+      case .failed:
+        decision = .failed
+        return .failed
+      case .correct:
+        current += 1
       }
     }
     return .correct
