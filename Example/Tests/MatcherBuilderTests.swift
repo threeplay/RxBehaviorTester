@@ -98,4 +98,17 @@ class MatcherBuilderTests: XCTestCase {
     expect(matcher.stream([State(id: 1)])) == .correct
     expect(matcher.stream([State(id: 2), State(id: 0)])) == .failed
   }
+
+  func test_that_assertions_untilNextMatcher_asserts_assert_between_matchers() {
+    let matcher = sut.build { dsl in
+      dsl.match { $0.id != 0 }
+      dsl.assert(.untilNextMatch) { $0.id != 0 }
+      dsl.match { $0.id == 1 }
+      dsl.match { $0.id == 0 }
+    }
+ 
+    expect(matcher.stream([State(id: 1), State(id: 0)])) == .correct
+    expect(matcher.stream([State(id: 2), State(id: 0)])) == .failed
+    expect(matcher.stream([State(id: 1), State(id: 2)])) == .pending
+  }
 }

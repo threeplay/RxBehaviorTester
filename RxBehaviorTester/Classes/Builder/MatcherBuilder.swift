@@ -21,12 +21,33 @@ private class BuilderContext<Element> {
 
 class MatcherBuilder<Element> {
   private class OrderedContext: BuilderContext<Element> {
+    private var scopes = [(matchers: [AnyKindMatcher<Element>], asserts: [AnyKindMatcher<Element>])]()
+
+    override func addAssert(_ matcher: AnyKindMatcher<Element>) {
+      if !matchers.isEmpty { makeScope() }
+      super.addAssert(matcher)
+    }
+
+    private func makeScope() {
+      if matchers.isEmpty, assertMatchers.isEmpty { return }
+      print("EBE - Make scope: \(matchers.count) asserts: \(assertMatchers.count)")
+      scopes.append((matchers: matchers, asserts: assertMatchers))
+      matchers = []
+      assertMatchers = []
+    }
+
     override func build() -> AnyKindMatcher<Element> {
-      let ordered = SequentialMatcher(matchers).toAny()
-      if !assertMatchers.isEmpty {
-        return AnyMatcher(assertMatchers + [ordered]).toAny()
+      makeScope()
+
+      let ordered: AnyKindMatcher<Element>? = scopes.reversed().reduce(nil) { current, scope in
+        print("EBE - Asserts: \(scope.asserts.count) Matches: \(scope.matchers.count)")
+        let matchers = SequentialMatcher(current == nil ? scope.matchers : scope.matchers + [current!]).toAny()
+        if !scope.asserts.isEmpty {
+          return AnyMatcher(scope.asserts + [matchers]).toAny()
+        }
+        return matchers
       }
-      return ordered
+      return ordered!
     }
   }
 
@@ -47,7 +68,7 @@ class MatcherBuilder<Element> {
     private var contextStack = [BuilderContext<Element>]()
     private var context: BuilderContext<Element> { return contextStack.last! }
 
-    enum AssertMode {
+    enum AssertLifetime {
       case always
       case untilNextMatch
     }
@@ -64,12 +85,12 @@ class MatcherBuilder<Element> {
       context.add(with(FirstContext() as! BuilderContext<Element>, block: block).build())
     }
 
-    func assert(_ mode: AssertMode, _ predicate: @escaping (Element) -> Bool) {
-      switch mode {
+    func assert(_ lifetime: AssertLifetime, _ predicate: @escaping (Element) -> Bool) {
+      switch lifetime {
       case .always:
         context.addAssert(PredicateMatcher(decision: .failed) { !predicate($0) }.toAny())
-      default:
-        break
+      case .untilNextMatch:
+        context.addAssert(PredicateMatcher(decision: .failed) { !predicate($0) }.toAny())
       }
     }
 
