@@ -42,8 +42,10 @@ import Foundation
 
  */
 private class BuilderContext<Element> {
+  fileprivate var matchers = [AnyKindMatcher<Element>]()
+
   open func add(_ matcher: AnyKindMatcher<Element>) {
-    fatalError("Must be implemented by subclasses")
+    matchers.append(matcher)
   }
 
   open func build() -> AnyKindMatcher<Element> {
@@ -53,26 +55,20 @@ private class BuilderContext<Element> {
 
 class MatcherBuilder<Element> {
   private class OrderedContext: BuilderContext<Element> {
-    private var orderedMatchers = [AnyKindMatcher<Element>]()
-
-    override func add(_ matcher: AnyKindMatcher<Element>) {
-      orderedMatchers.append(matcher)
-    }
-
     override func build() -> AnyKindMatcher<Element> {
-      return SequentialMatcher(orderedMatchers).toAny()
+      return SequentialMatcher(matchers).toAny()
     }
   }
 
   private class UnorderedContext: BuilderContext<Element> {
-    private var unorderedMatchers = [AnyKindMatcher<Element>]()
-
-    override func add(_ matcher: AnyKindMatcher<Element>) {
-      unorderedMatchers.append(matcher)
-    }
-
     override func build() -> AnyKindMatcher<Element> {
-      return AllMatcher(unorderedMatchers).toAny()
+      return AllMatcher(matchers).toAny()
+    }
+  }
+
+  private class FirstContext: BuilderContext<Element> {
+    override func build() -> AnyKindMatcher<Element> {
+      return AnyMatcher(matchers).toAny()
     }
   }
 
@@ -86,6 +82,10 @@ class MatcherBuilder<Element> {
 
     func unordered(_ block: () -> Void) {
       context.add(with(UnorderedContext() as! BuilderContext<Element>, block: block).build())
+    }
+
+    func first(_ block: () -> Void) {
+      context.add(with(FirstContext() as! BuilderContext<Element>, block: block).build())
     }
 
     fileprivate init(initialContext: BuilderContext<Element>) {
