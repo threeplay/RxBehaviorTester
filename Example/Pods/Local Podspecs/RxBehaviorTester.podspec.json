@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "RxSwift": [
-      "~> 4.0"
+      "~> 4.4"
     ],
     "RxBlocking": [
-      "~> 4.0"
+      "~> 4.4"
     ]
   },
   "source_files": "RxBehaviorTester/Classes/**/*"
