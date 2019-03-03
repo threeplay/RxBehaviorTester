@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import RxSwift
+import enum RxSwift.Event
 
 class AllMatcher<Element>: RxBehaviorMatcher {
   private let matchers: [AnyMatcher<Element>]

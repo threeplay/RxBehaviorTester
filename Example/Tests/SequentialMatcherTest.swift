@@ -1,12 +1,10 @@
 //  Created by Eliran Ben-Ezra on 2/16/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import XCTest
 @testable import RxBehaviorTester
 import Nimble
 
-class SequentialEvaluatorTests: XCTestCase {
+class SequentialMatcherTests: XCTestCase {
   var sut: SequentialMatcher<Int>!
   var mocks: [MockMatcher<Int>]!
 

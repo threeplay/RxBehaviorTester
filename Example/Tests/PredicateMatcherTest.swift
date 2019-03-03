@@ -1,13 +1,11 @@
 //  Created by Eliran Ben-Ezra on 2/17/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import XCTest
 @testable import RxBehaviorTester
 import RxSwift
 import Nimble
 
-class PredicateEvaluatorTests: XCTestCase {
+class PredicateMatcherTests: XCTestCase {
   func test_that_false_predicate_returns_a_pending_decision() {
     let sut = PredicateMatcher<Int>(decision: .correct) { _ in return false }
 
