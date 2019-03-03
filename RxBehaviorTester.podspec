@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.10'
   s.platform = 'ios'
-  s.dependency 'RxSwift', '~> 4.0'
-  s.dependency 'RxBlocking', '~> 4.0'
+  s.dependency 'RxSwift', '~> 4.4'
+  s.dependency 'RxBlocking', '~> 4.4'
 
   s.source_files = 'RxBehaviorTester/Classes/**/*'
 end

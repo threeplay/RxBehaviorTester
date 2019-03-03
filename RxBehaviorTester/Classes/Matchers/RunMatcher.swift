@@ -1,5 +1,4 @@
 //  Created by Eliran Ben-Ezra on 3/2/19.
-//
 
 import Foundation
 import enum RxSwift.Event

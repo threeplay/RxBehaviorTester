@@ -1,15 +1,13 @@
 //  Created by Eliran Ben-Ezra on 2/17/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import Foundation
 import enum RxSwift.Event
 
 class AllMatcher<Element>: RxBehaviorMatcher {
-  private let matchers: [AnyMatcher<Element>]
+  private let matchers: [AnyKindMatcher<Element>]
   private var areCorrect: [Bool]
 
-  init(_ matchers: [AnyMatcher<Element>]) {
+  init(_ matchers: [AnyKindMatcher<Element>]) {
     self.matchers = matchers
     self.areCorrect = Array(repeating: false, count: matchers.count)
   }
