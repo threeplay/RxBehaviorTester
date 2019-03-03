@@ -22,6 +22,13 @@ extension RxSwift.Event: Equatable where Element: Equatable {
   }
 }
 
+extension RxBehaviorMatcher {
+  func stream(_ events: [Element]) -> MatchDecision {
+    reset()
+    return events.map { self.on(event: .next($0)) }.last ?? .correct
+  }
+}
+
 class ListMatcherTestCase: XCTestCase {
   struct State: Equatable {
     var intField: Int

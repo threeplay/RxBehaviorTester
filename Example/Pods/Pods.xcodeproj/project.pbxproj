@@ -197,6 +197,7 @@
 		B518C54128F0340CE210BBDACA27C3E2 /* DispatchQueueConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2B4BD45D664858B4921D397F4F409 /* DispatchQueueConfiguration.swift */; };
 		B56E59F397635F68C6F82BE32888E42E /* DelaySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206CE41C7F5720429D10318AC26D218F /* DelaySubscription.swift */; };
 		B7411D64222B9D1400C77DBD /* AnyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D62222B9CED00C77DBD /* AnyMatcher.swift */; };
+		B7411D67222BA16B00C77DBD /* MatcherBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D66222BA16B00C77DBD /* MatcherBuilder.swift */; };
 		B7539202486EB9774B0E9BBD992E0AD1 /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB7CE47ED5C9F569B7B0C79BBD4372 /* Repeat.swift */; };
 		B7E2AB7A6C70C55094F252AFA84AD9C3 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C349854B97A574454C6646F5761DD /* Expression.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		B827B4A5C500FF555D33A18D92A81D2D /* Never.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BA215854DEDE2D22876857828207B7 /* Never.swift */; };
@@ -585,6 +586,7 @@
 		B6B673FC7A5FC6189B04B6E669638A78 /* Platform.Linux.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.Linux.swift; path = Platform/Platform.Linux.swift; sourceTree = "<group>"; };
 		B73699F8B82B06A66583E69897B70B7D /* AtomicInt.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AtomicInt.swift; path = Platform/AtomicInt.swift; sourceTree = "<group>"; };
 		B7411D62222B9CED00C77DBD /* AnyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMatcher.swift; sourceTree = "<group>"; };
+		B7411D66222BA16B00C77DBD /* MatcherBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherBuilder.swift; sourceTree = "<group>"; };
 		B7C16984862CE0B64329C23E999DA8B2 /* RxMutableBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxMutableBox.swift; path = RxSwift/RxMutableBox.swift; sourceTree = "<group>"; };
 		B8E309A99A4CF44A0EC70225CCBEE263 /* RxBehaviorTester.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RxBehaviorTester.modulemap; sourceTree = "<group>"; };
 		B8E5E80FC8C1CB9E649FEC87712B6134 /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Sources/Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 			children = (
 				CE77F440C43058BDCEDFD0B4498F646D /* RxBehaviorTester.swift */,
 				42C9A0DB276A057D546D0F71B52E37A0 /* Core */,
+				B7411D65222BA16B00C77DBD /* Builder */,
 				A339113972044FC0EFC56F2FA29051E4 /* Matchers */,
 				072550F6F8C9EBE81AE042661FC99367 /* Pod */,
 				1F8AC04C3FEDDCCD0D82F5CE8FC3CBEE /* Support Files */,
@@ -1117,6 +1120,15 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/RxAtomic";
+			sourceTree = "<group>";
+		};
+		B7411D65222BA16B00C77DBD /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B7411D66222BA16B00C77DBD /* MatcherBuilder.swift */,
+			);
+			name = Builder;
+			path = RxBehaviorTester/Classes/Builder;
 			sourceTree = "<group>";
 		};
 		C83EC58607362F3C14DEAD33E16062DD /* Targets Support Files */ = {
@@ -1789,6 +1801,7 @@
 				93CD26387B3D2660EFFFCC997760D808 /* AnyKindMatcher.swift in Sources */,
 				9F715861C16142A6A8A65590784DD44E /* MatchDecision.swift in Sources */,
 				4097385354D41C37BCEA4B9222906DAA /* PredicateMatcher.swift in Sources */,
+				B7411D67222BA16B00C77DBD /* MatcherBuilder.swift in Sources */,
 				E53F21A74F8A58DC7633AE23238275C3 /* RunMatcher.swift in Sources */,
 				9992E19F73D6B5D0AE1B655CA78ADCF7 /* RxBehaviorMatcher.swift in Sources */,
 				75A1D0285D25173FEDCB082701C332CF /* RxBehaviorTester-dummy.m in Sources */,

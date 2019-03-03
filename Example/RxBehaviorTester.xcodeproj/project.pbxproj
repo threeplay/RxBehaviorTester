@@ -22,6 +22,7 @@
 		B7411D58222B73E600C77DBD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D57222B73E600C77DBD /* Mocks.swift */; };
 		B7411D5C222B8C1F00C77DBD /* RunMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D5B222B8C1E00C77DBD /* RunMatcherTest.swift */; };
 		B7411D61222B9BB600C77DBD /* AnyMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D60222B9BB600C77DBD /* AnyMatcherTest.swift */; };
+		B7411D6A222C226E00C77DBD /* MatcherBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D69222C226E00C77DBD /* MatcherBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		B7411D57222B73E600C77DBD /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		B7411D5B222B8C1E00C77DBD /* RunMatcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunMatcherTest.swift; sourceTree = "<group>"; };
 		B7411D60222B9BB600C77DBD /* AnyMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMatcherTest.swift; sourceTree = "<group>"; };
+		B7411D69222C226E00C77DBD /* MatcherBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherBuilderTests.swift; sourceTree = "<group>"; };
 		C775591BC80542F8D4A79E76 /* Pods-RxBehaviorTester_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxBehaviorTester_Example.release.xcconfig"; path = "Target Support Files/Pods-RxBehaviorTester_Example/Pods-RxBehaviorTester_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B7411D68222C220500C77DBD /* Builder */,
 				B7411D51222B721B00C77DBD /* Matchers */,
 				B7411D45222B71F000C77DBD /* RxBehaviorTesterTests.swift */,
 				B7411D55222B72E000C77DBD /* TestSupport.swift */,
@@ -181,6 +184,14 @@
 				B7411D5B222B8C1E00C77DBD /* RunMatcherTest.swift */,
 			);
 			name = Matchers;
+			sourceTree = "<group>";
+		};
+		B7411D68222C220500C77DBD /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B7411D69222C226E00C77DBD /* MatcherBuilderTests.swift */,
+			);
+			name = Builder;
 			sourceTree = "<group>";
 		};
 		EDF316FEC16AF4DE2B443F24 /* Frameworks */ = {
@@ -409,6 +420,7 @@
 				B7411D52222B72AC00C77DBD /* PredicateMatcherTest.swift in Sources */,
 				B7411D54222B72C600C77DBD /* RxBehaviorTesterTests.swift in Sources */,
 				B7411D61222B9BB600C77DBD /* AnyMatcherTest.swift in Sources */,
+				B7411D6A222C226E00C77DBD /* MatcherBuilderTests.swift in Sources */,
 				B7411D5C222B8C1F00C77DBD /* RunMatcherTest.swift in Sources */,
 				B7411D56222B72E000C77DBD /* TestSupport.swift in Sources */,
 				B7411D50222B71FB00C77DBD /* AllMatcherTest.swift in Sources */,
