@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RxBehaviorTester_Example' do
+  pod 'RxBehaviorTester', :path => '../'
+
+  target 'RxBehaviorTester_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
