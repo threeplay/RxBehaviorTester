@@ -48,10 +48,8 @@ class AnyMatcherTests: XCTestCase {
     sut.reset()
     _ = sut.on(event: .next(1))
 
-    expect(self.mocks[0].actions) == [.next(.next(0)), .next(.next(1))]
-    expect(self.mocks[1].actions) == [.next(.next(0)), .next(.next(1))]
-    expect(self.mocks[2].actions) == [.next(.next(0)), .next(.next(1))]
+    expect(self.mocks[0].actions) == [.next(.next(0)), .reset, .next(.next(1))]
+    expect(self.mocks[1].actions) == [.next(.next(0)), .reset, .next(.next(1))]
+    expect(self.mocks[2].actions) == [.next(.next(0)), .reset, .next(.next(1))]
   }
-
-
 }
