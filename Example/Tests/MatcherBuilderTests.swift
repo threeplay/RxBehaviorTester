@@ -40,6 +40,19 @@ class MatcherBuilderTests: XCTestCase {
     expect(matcher.stream([State(id: 1), State(id: 0), State(id: 3)])) == .pending
   }
 
+  func test_that_it_can_create_an_unordered_matcher() {
+    let matcher = sut.build { c in
+      c.unordered {
+        c.match { $0.id == 0 }
+        c.match { $0.id == 1 }
+      }
+    }
+
+    expect(matcher.stream([State(id: 0), State(id: 1)])) == .correct
+    expect(matcher.stream([State(id: 1), State(id: 0)])) == .correct
+    expect(matcher.stream([State(id: 1), State(id: 2)])) == .pending
+  }
+
   private func stream(_ events: [State], on matcher: AnyKindMatcher<State>) -> MatchDecision {
     matcher.reset()
     return events.map { matcher.on(event: .next($0)) }.last!

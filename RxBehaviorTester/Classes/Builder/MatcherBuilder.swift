@@ -41,24 +41,73 @@ import Foundation
     
 
  */
+private class BuilderContext<Element> {
+  open func add(_ matcher: AnyKindMatcher<Element>) {
+    fatalError("Must be implemented by subclasses")
+  }
+
+  open func build() -> AnyKindMatcher<Element> {
+    fatalError("Must be implemented by subclasses")
+  }
+}
+
 class MatcherBuilder<Element> {
-  class Context<Element> {
-    private var sequentialMatchers = [AnyKindMatcher<Element>]()
+  private class OrderedContext: BuilderContext<Element> {
+    private var orderedMatchers = [AnyKindMatcher<Element>]()
 
-    fileprivate init() {}
-
-    fileprivate func build() -> AnyKindMatcher<Element> {
-      return SequentialMatcher(sequentialMatchers).toAny()
+    override func add(_ matcher: AnyKindMatcher<Element>) {
+      orderedMatchers.append(matcher)
     }
 
-    func match(_ predicate: @escaping (Element) -> Bool) {
-      sequentialMatchers.append(PredicateMatcher(predicate).toAny())
+    override func build() -> AnyKindMatcher<Element> {
+      return SequentialMatcher(orderedMatchers).toAny()
     }
   }
 
-  func build(_ buildBlock: (Context<Element>) -> Void) -> AnyKindMatcher<Element> {
-    let context = Context<Element>()
-    buildBlock(context)
-    return context.build()
+  private class UnorderedContext: BuilderContext<Element> {
+    private var unorderedMatchers = [AnyKindMatcher<Element>]()
+
+    override func add(_ matcher: AnyKindMatcher<Element>) {
+      unorderedMatchers.append(matcher)
+    }
+
+    override func build() -> AnyKindMatcher<Element> {
+      return AllMatcher(unorderedMatchers).toAny()
+    }
+  }
+
+  class BuilderDSL<Element> {
+    private var contextStack = [BuilderContext<Element>]()
+    private var context: BuilderContext<Element> { return contextStack.last! }
+
+    func match(_ predicate: @escaping (Element) -> Bool) {
+      context.add(PredicateMatcher(predicate).toAny())
+    }
+
+    func unordered(_ block: () -> Void) {
+      context.add(with(UnorderedContext() as! BuilderContext<Element>, block: block).build())
+    }
+
+    fileprivate init(initialContext: BuilderContext<Element>) {
+      self.contextStack = [initialContext]
+    }
+
+    fileprivate func with(_ context: BuilderContext<Element>, block: () -> Void) -> BuilderContext<Element> {
+      contextStack.append(context)
+      defer { contextStack.removeLast() }
+      block()
+      return context
+    }
+
+    fileprivate func build() -> AnyKindMatcher<Element> {
+      assert(contextStack.count == 1)
+      return context.build()
+    }
+  }
+
+  func build(_ buildBlock: (BuilderDSL<Element>) -> Void) -> AnyKindMatcher<Element> {
+    let dsl = BuilderDSL<Element>(initialContext: OrderedContext())
+    buildBlock(dsl)
+    return dsl.build()
   }
 }
