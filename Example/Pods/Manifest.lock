@@ -1,16 +1,39 @@
 PODS:
-  - RxBehaviorTester (0.1.0)
+  - Nimble (7.3.4)
+  - RxAtomic (4.4.1)
+  - RxBehaviorTester (0.1.0):
+    - RxBlocking (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxBlocking (4.4.1):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
+  - Nimble (~> 7.3.4)
   - RxBehaviorTester (from `../`)
+  - RxBlocking (~> 4.0)
+  - RxSwift (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - RxAtomic
+    - RxBlocking
+    - RxSwift
 
 EXTERNAL SOURCES:
   RxBehaviorTester:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RxBehaviorTester: fff9d4daefdf4a1b56221e520421c8908ebda987
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxBehaviorTester: e2fd805194b9c991821d368fb59c674192e093ba
+  RxBlocking: 5508e90d36ca2304632dc9378ece4e9b5d4bf656
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
 
-PODFILE CHECKSUM: 8cabe8051ee5d9d1029b5705aac2b0eff4957f10
+PODFILE CHECKSUM: 80409af256218825c6835c045aa0d9084609eaa2
 
 COCOAPODS: 1.6.0

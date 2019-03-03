@@ -8,6 +8,6 @@ target 'RxBehaviorTester_Example' do
   target 'RxBehaviorTester_Tests' do
     inherit! :search_paths
 
-    pod 'Nimble', '~> 7.0.2'
+    pod 'Nimble', '~> 7.3.4'
   end
 end

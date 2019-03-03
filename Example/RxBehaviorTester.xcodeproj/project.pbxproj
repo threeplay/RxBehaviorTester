@@ -13,8 +13,13 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B36323781926B503DC5BD872 /* Pods_RxBehaviorTester_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01DE6C7B405FCA5076D84C6E /* Pods_RxBehaviorTester_Example.framework */; };
+		B7411D50222B71FB00C77DBD /* AllMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D44222B71F000C77DBD /* AllMatcherTest.swift */; };
+		B7411D52222B72AC00C77DBD /* PredicateMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D47222B71F000C77DBD /* PredicateMatcherTest.swift */; };
+		B7411D53222B72B300C77DBD /* SequentialMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D46222B71F000C77DBD /* SequentialMatcherTest.swift */; };
+		B7411D54222B72C600C77DBD /* RxBehaviorTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D45222B71F000C77DBD /* RxBehaviorTesterTests.swift */; };
+		B7411D56222B72E000C77DBD /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D55222B72E000C77DBD /* TestSupport.swift */; };
+		B7411D58222B73E600C77DBD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7411D57222B73E600C77DBD /* Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +47,17 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RxBehaviorTester_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxBehaviorTester_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9B4F4CBB5A79EF7B22BC7C7A /* Pods-RxBehaviorTester_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxBehaviorTester_Tests.release.xcconfig"; path = "Target Support Files/Pods-RxBehaviorTester_Tests/Pods-RxBehaviorTester_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A8F4E00FF4543C58A6FA65ED /* RxBehaviorTester.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RxBehaviorTester.podspec; path = ../RxBehaviorTester.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B2BE84F59D80C1EF1F87385C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B7411D44222B71F000C77DBD /* AllMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMatcherTest.swift; sourceTree = "<group>"; };
+		B7411D45222B71F000C77DBD /* RxBehaviorTesterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxBehaviorTesterTests.swift; sourceTree = "<group>"; };
+		B7411D46222B71F000C77DBD /* SequentialMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequentialMatcherTest.swift; sourceTree = "<group>"; };
+		B7411D47222B71F000C77DBD /* PredicateMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredicateMatcherTest.swift; sourceTree = "<group>"; };
+		B7411D48222B71F000C77DBD /* ExampleBehaviorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleBehaviorTest.swift; sourceTree = "<group>"; };
+		B7411D49222B71F100C77DBD /* MatcherBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherBuilder.swift; sourceTree = "<group>"; };
+		B7411D55222B72E000C77DBD /* TestSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		B7411D57222B73E600C77DBD /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		C775591BC80542F8D4A79E76 /* Pods-RxBehaviorTester_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxBehaviorTester_Example.release.xcconfig"; path = "Target Support Files/Pods-RxBehaviorTester_Example/Pods-RxBehaviorTester_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +105,8 @@
 		607FACD21AFB9204008FA782 /* Example for RxBehaviorTester */ = {
 			isa = PBXGroup;
 			children = (
+				B7411D48222B71F000C77DBD /* ExampleBehaviorTest.swift */,
+				B7411D49222B71F100C77DBD /* MatcherBuilder.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -115,7 +129,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				B7411D51222B721B00C77DBD /* Matchers */,
+				B7411D45222B71F000C77DBD /* RxBehaviorTesterTests.swift */,
+				B7411D55222B72E000C77DBD /* TestSupport.swift */,
+				B7411D57222B73E600C77DBD /* Mocks.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -148,6 +165,16 @@
 				9B4F4CBB5A79EF7B22BC7C7A /* Pods-RxBehaviorTester_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B7411D51222B721B00C77DBD /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				B7411D46222B71F000C77DBD /* SequentialMatcherTest.swift */,
+				B7411D47222B71F000C77DBD /* PredicateMatcherTest.swift */,
+				B7411D44222B71F000C77DBD /* AllMatcherTest.swift */,
+			);
+			name = Matchers;
 			sourceTree = "<group>";
 		};
 		EDF316FEC16AF4DE2B443F24 /* Frameworks */ = {
@@ -189,6 +216,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				049C116A1CAC43132958EEE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +289,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		049C116A1CAC43132958EEE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxBehaviorTester_Tests/Pods-RxBehaviorTester_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxBehaviorTester_Tests/Pods-RxBehaviorTester_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		274EE2E578CE0A9DEFE893B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,13 +364,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RxBehaviorTester_Example/Pods-RxBehaviorTester_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBehaviorTester/RxBehaviorTester.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBehaviorTester.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -343,7 +399,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				B7411D53222B72B300C77DBD /* SequentialMatcherTest.swift in Sources */,
+				B7411D52222B72AC00C77DBD /* PredicateMatcherTest.swift in Sources */,
+				B7411D54222B72C600C77DBD /* RxBehaviorTesterTests.swift in Sources */,
+				B7411D56222B72E000C77DBD /* TestSupport.swift in Sources */,
+				B7411D50222B71FB00C77DBD /* AllMatcherTest.swift in Sources */,
+				B7411D58222B73E600C77DBD /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

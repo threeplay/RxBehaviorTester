@@ -1,6 +1,6 @@
 # RxBehaviorTester
 
-[![CI Status](https://img.shields.io/travis/Eliran Ben-Ezra/RxBehaviorTester.svg?style=flat)](https://travis-ci.org/Eliran Ben-Ezra/RxBehaviorTester)
+[![CI Status](https://img.shields.io/travis/threeplay/RxBehaviorTester.svg?style=flat)](https://travis-ci.org/threeplay/RxBehaviorTester)
 [![Version](https://img.shields.io/cocoapods/v/RxBehaviorTester.svg?style=flat)](https://cocoapods.org/pods/RxBehaviorTester)
 [![License](https://img.shields.io/cocoapods/l/RxBehaviorTester.svg?style=flat)](https://cocoapods.org/pods/RxBehaviorTester)
 [![Platform](https://img.shields.io/cocoapods/p/RxBehaviorTester.svg?style=flat)](https://cocoapods.org/pods/RxBehaviorTester)
@@ -22,7 +22,7 @@ pod 'RxBehaviorTester'
 
 ## Author
 
-Eliran Ben-Ezra, eliran@gc.io
+Eliran Ben-Ezra, eliran@threeplay.com
 
 ## License
 
