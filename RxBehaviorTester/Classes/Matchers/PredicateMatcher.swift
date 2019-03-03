@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import RxSwift
+import enum RxSwift.Event
 
 class PredicateMatcher<Element>: RxBehaviorMatcher {
   typealias PredicateBlock = (Element) -> Bool

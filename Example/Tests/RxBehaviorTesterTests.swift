@@ -1,6 +1,4 @@
 //  Created by Eliran Ben-Ezra on 2/16/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import XCTest
 @testable import RxBehaviorTester
@@ -15,16 +13,16 @@ class RxBehaviorTesterTests: XCTestCase {
 
   private var tester: RxBehaviorTester<State>!
   private var source: ReplaySubject<State>!
-  private var mockEvaluator: MockMatcher<State>!
+  private var mockMatcher: MockMatcher<State>!
 
   func makeState(intField: Int = 0, decision: MatchDecision = .pending) -> State {
     return State(intField: intField, decision: decision)
   }
 
   override func setUp() {
-    mockEvaluator = MockMatcher()
+    mockMatcher = MockMatcher()
     source = ReplaySubject.createUnbounded()
-    tester = RxBehaviorTester(source, matcher: mockEvaluator.toAny())
+    tester = RxBehaviorTester(source, matcher: mockMatcher.toAny())
   }
 
   func test_that_it_returns_failed_decision_if_times_out() {
@@ -37,7 +35,7 @@ class RxBehaviorTesterTests: XCTestCase {
     let _ = tester.test(withTimeout: 0.1)
 
     let expected: [MockAction<State>] = [.reset, .next(Event.completed)]
-    let actual = mockEvaluator.actions
+    let actual = mockMatcher.actions
     XCTAssertEqual(actual, expected)
   }
 
@@ -52,15 +50,15 @@ class RxBehaviorTesterTests: XCTestCase {
     expectedActions.append(contentsOf: states.map { .next(Event.next($0)) })
     expectedActions.append(MockAction.next(Event.completed))
 
-    XCTAssertEqual(mockEvaluator.actions.count, expectedActions.count)
-    XCTAssertEqual(mockEvaluator.actions, expectedActions)
+    XCTAssertEqual(mockMatcher.actions.count, expectedActions.count)
+    XCTAssertEqual(mockMatcher.actions, expectedActions)
   }
 
   func test_that_correct_decision_terminates_the_test_and_returns_the_decision() {
     source.onNext(makeState())
     source.onNext(makeState(decision: .correct))
     source.onNext(makeState(decision: .failed))
-    mockEvaluator.returnOnNext { $0.decision }
+    mockMatcher.returnOnNext { $0.decision }
 
     let decision = tester.test(withTimeout: 0.1)
 
@@ -72,19 +70,19 @@ class RxBehaviorTesterTests: XCTestCase {
     source.onNext(makeState(decision: .correct))
     source.onNext(makeState(decision: .failed))
     source.onNext(makeState(decision: .failed))
-    mockEvaluator.returnOnNext { $0.decision }
+    mockMatcher.returnOnNext { $0.decision }
 
     _ = tester.test(withTimeout: 0.1)
 
-    XCTAssertEqual(mockEvaluator.actions.count, 1+2)
-    XCTAssertEqual(mockEvaluator.actions, [.reset, .next(.next(makeState())), .next(.next(makeState(decision: .correct)))])
+    XCTAssertEqual(mockMatcher.actions.count, 1+2)
+    XCTAssertEqual(mockMatcher.actions, [.reset, .next(.next(makeState())), .next(.next(makeState(decision: .correct)))])
   }
 
   func test_that_failed_decision_terminates_the_test_and_returns_the_decision() {
     source.onNext(makeState())
     source.onNext(makeState(decision: .failed))
     source.onNext(makeState(decision: .correct))
-    mockEvaluator.returnOnNext { $0.decision }
+    mockMatcher.returnOnNext { $0.decision }
 
     let decision = tester.test(withTimeout: 0.1)
 
