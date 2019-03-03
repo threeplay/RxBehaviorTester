@@ -1,6 +1,4 @@
 //  Created by Eliran Ben-Ezra on 2/17/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import Foundation
 import enum RxSwift.Event

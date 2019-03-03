@@ -1,30 +1,20 @@
-//  Created by Eliran Ben-Ezra on 2/16/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
+//  Created by Eliran Ben-Ezra on 2/17/19.
 
 import Foundation
 import enum RxSwift.Event
 
-public class AnyMatcher<Element>: RxBehaviorMatcher {
-  private let _onEvent: (Event<Element>) -> MatchDecision
-  private let _reset: () -> Void
-  
-  public init<Matcher: RxBehaviorMatcher>(_ matcher: Matcher) where Element == Matcher.Element {
-    self._onEvent = matcher.on
-    self._reset = matcher.reset
+class AnyMatcher<Element>: RxBehaviorMatcher {
+  private let matchers: [AnyKindMatcher<Element>]
+
+  init(_ matchers: [AnyKindMatcher<Element>]) {
+    self.matchers = matchers
   }
 
-  public func reset() {
-    return _reset()
+  func reset() {
+    matchers.forEach { $0.reset() }
   }
 
-  public func on(event: Event<Element>) -> MatchDecision {
-    return _onEvent(event)
-  }
-}
-
-public extension RxBehaviorMatcher {
-  public func toAny() -> AnyMatcher<Element> {
-    return AnyMatcher(self)
+  func on(event: Event<Element>) -> MatchDecision {
+    return .pending
   }
 }

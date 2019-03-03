@@ -1,6 +1,4 @@
 //  Created by Eliran Ben-Ezra on 2/16/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import Foundation
 import RxSwift
@@ -8,9 +6,9 @@ import RxBlocking
 
 public class RxBehaviorTester<Element> {
   private let observableUnderTest: Observable<Element>
-  private let matcher: AnyMatcher<Element>
+  private let matcher: AnyKindMatcher<Element>
 
-  public init(_ observableUnderTest: Observable<Element>, matcher: AnyMatcher<Element>) {
+  public init(_ observableUnderTest: Observable<Element>, matcher: AnyKindMatcher<Element>) {
     self.observableUnderTest = observableUnderTest
     self.matcher = matcher
   }

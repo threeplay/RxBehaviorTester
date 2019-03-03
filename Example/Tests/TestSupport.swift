@@ -38,7 +38,7 @@ class ListMatcherTestCase: XCTestCase {
     tester = RxBehaviorTester(source, matcher: setupSUT()!)
   }
 
-  func setupSUT() -> AnyMatcher<State>? {
+  func setupSUT() -> AnyKindMatcher<State>? {
     return nil
   }
 

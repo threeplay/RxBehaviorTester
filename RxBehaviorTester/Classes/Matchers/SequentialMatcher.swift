@@ -1,16 +1,14 @@
 //  Created by Eliran Ben-Ezra on 2/16/19.
-//  Copyright © 2019 Threeplay Inc. All rights reserved.
-//
 
 import Foundation
 import enum RxSwift.Event
 
 class SequentialMatcher<Element>: RxBehaviorMatcher {
-  private let matchers: [AnyMatcher<Element>]
+  private let matchers: [AnyKindMatcher<Element>]
   private var current: Int = 0
   private var decision: MatchDecision?
 
-  init(_ matchers: [AnyMatcher<Element>]) {
+  init(_ matchers: [AnyKindMatcher<Element>]) {
     self.matchers = matchers
   }
 
