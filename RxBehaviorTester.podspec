@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/threeplay/RxBehaviorTester.git', :tag => s.version.to_s }
 
   s.swift_version = "4.2"
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.osx.deployment_target = '10.10'
-  s.platform = 'ios'
+  s.platform = :ios, '11.0'
   s.dependency 'RxSwift', '~> 4.0'
   s.dependency 'RxBlocking', '~> 4.0'
 

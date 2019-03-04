@@ -257,10 +257,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = B2AK2W5225;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = B2AK2W5225;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -562,7 +564,9 @@
 			baseConfigurationReference = 3DD6264828AF0D8F09D66F6F /* Pods-RxBehaviorTester_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B2AK2W5225;
 				INFOPLIST_FILE = RxBehaviorTester/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -577,7 +581,9 @@
 			baseConfigurationReference = C775591BC80542F8D4A79E76 /* Pods-RxBehaviorTester_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B2AK2W5225;
 				INFOPLIST_FILE = RxBehaviorTester/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -591,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D70096B7F98D238596DAA27 /* Pods-RxBehaviorTester_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = B2AK2W5225;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -613,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9B4F4CBB5A79EF7B22BC7C7A /* Pods-RxBehaviorTester_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = B2AK2W5225;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
