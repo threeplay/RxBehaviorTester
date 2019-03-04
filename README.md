@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/RxBehaviorTester.svg?style=flat)](https://cocoapods.org/pods/RxBehaviorTester)
 [![Platform](https://img.shields.io/cocoapods/p/RxBehaviorTester.svg?style=flat)](https://cocoapods.org/pods/RxBehaviorTester)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f8fa18ad5ae7d25ae75c/maintainability)](https://codeclimate.com/github/threeplay/RxBehaviorTester/maintainability)
+[![codecov](https://codecov.io/gh/threeplay/RxBehaviorTester/branch/master/graph/badge.svg)](https://codecov.io/gh/threeplay/RxBehaviorTester)
 
 Rx Behavior Testing by stream pattern matching and assertions
 
