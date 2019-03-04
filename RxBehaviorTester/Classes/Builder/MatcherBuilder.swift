@@ -4,6 +4,7 @@ import Foundation
 
 private class BuilderContext<Element> {
   fileprivate var assertMatchers = [AnyKindMatcher<Element>]()
+  fileprivate var boundedAssertMatchers = [AnyKindMatcher<Element>]()
   fileprivate var matchers = [AnyKindMatcher<Element>]()
 
   open func add(_ matcher: AnyKindMatcher<Element>) {
@@ -12,6 +13,10 @@ private class BuilderContext<Element> {
 
   open func addAssert(_ matcher: AnyKindMatcher<Element>) {
     assertMatchers.append(matcher)
+  }
+
+  open func addBoundedAssert(_ matcher: AnyKindMatcher<Element>) {
+    boundedAssertMatchers.append(matcher)
   }
 
   open func build() -> AnyKindMatcher<Element> {
@@ -28,9 +33,17 @@ class MatcherBuilder<Element> {
       super.addAssert(matcher)
     }
 
+    override func add(_ matcher: AnyKindMatcher<Element>) {
+      if !boundedAssertMatchers.isEmpty {
+        super.add(AnyMatcher([matcher] + boundedAssertMatchers).toAny())
+        boundedAssertMatchers = []
+      } else {
+        super.add(matcher)
+      }
+    }
+
     private func makeScope() {
       if matchers.isEmpty, assertMatchers.isEmpty { return }
-      print("EBE - Make scope: \(matchers.count) asserts: \(assertMatchers.count)")
       scopes.append((matchers: matchers, asserts: assertMatchers))
       matchers = []
       assertMatchers = []
@@ -40,14 +53,13 @@ class MatcherBuilder<Element> {
       makeScope()
 
       let ordered: AnyKindMatcher<Element>? = scopes.reversed().reduce(nil) { current, scope in
-        print("EBE - Asserts: \(scope.asserts.count) Matches: \(scope.matchers.count)")
         let matchers = SequentialMatcher(current == nil ? scope.matchers : scope.matchers + [current!]).toAny()
         if !scope.asserts.isEmpty {
           return AnyMatcher(scope.asserts + [matchers]).toAny()
         }
         return matchers
       }
-      return ordered!
+      return ordered ?? PredicateMatcher { _ in true }.toAny()
     }
   }
 
@@ -90,7 +102,7 @@ class MatcherBuilder<Element> {
       case .always:
         context.addAssert(PredicateMatcher(decision: .failed) { !predicate($0) }.toAny())
       case .untilNextMatch:
-        context.addAssert(PredicateMatcher(decision: .failed) { !predicate($0) }.toAny())
+        context.addBoundedAssert(PredicateMatcher(decision: .failed) { !predicate($0) }.toAny())
       }
     }
 
