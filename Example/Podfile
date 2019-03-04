@@ -1,8 +1,8 @@
 use_frameworks!
 
 target 'RxBehaviorTester_Example' do
-  pod 'RxSwift', '~> 4.4'
-  pod 'RxBlocking', '~> 4.4'
+  pod 'RxSwift', '~> 4.0'
+  pod 'RxBlocking', '~> 4.0'
   pod 'RxBehaviorTester', :path => '../'
 
   target 'RxBehaviorTester_Tests' do
